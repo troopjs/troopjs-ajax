@@ -1,0 +1,19 @@
+{
+  "name": "troopjs-ajax",
+  "authors": [
+    "Mikael Karon"
+  ],
+  "description": "TroopJS ajax module",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "troopjs-core": "~3",
+    "troopjs-util": "~3",
+    "jquery": ">=1.8.1"
+  }
+}
