@@ -3,24 +3,26 @@
  */
 define([
 	"./config",
-	"troopjs-core/component/service",
+	"troopjs-core/component/gadget",
 	"jquery",
-	"troopjs-util/merge"
-], function (config, Service, $, merge) {
+	"mu-merge"
+], function (config, Gadget, $, merge) {
 	"use strict";
 
 	/**
 	 * Provides ajax as a service
 	 * @class ajax.service
-	 * @extend core.component.service
+	 * @extend core.component.gadget
+	 * @mixin ajax.config
+	 * @alias service.ajax
 	 */
 
-	var SETTINGS = config.settings;
+	var SETTINGS = config.ajax.settings;
 
 	/**
 	 * @method constructor
 	 */
-	return Service.extend({
+	return Gadget.extend({
 		"displayName" : "ajax/service",
 
 		/**
@@ -30,7 +32,7 @@ define([
 		 */
 
 		/**
-		 * Make ajax request.
+		 * Make ajax request
 		 * @handler
 		 * @inheritdoc #event-hub/ajax
 		 */

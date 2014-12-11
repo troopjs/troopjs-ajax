@@ -3,20 +3,19 @@
  */
 define([
 	"module",
-	"troopjs-util/merge"
-], function (module, merge) {
+	"troopjs-core/config",
+	"mu-merge"
+], function (module, config, merge) {
 	"use strict";
 
 	/**
-	 * Provides configuration for the ajax package
-	 * @class ajax.config
-	 * @protected
-	 * @alias feature.config
+	 * @class ajax.config.ajax
+	 * @private
 	 */
-
-	return merge.call({
+	var AJAX = {
 		/**
-		 * @cfg {Function} settings Method that generates default settings which will be added to any ajax request.
+		 * Method that generates default settings which will be added to any ajax request
+		 * @return {Object}
 		 */
 		"settings" : function () {
 			return {
@@ -25,5 +24,22 @@ define([
 				}
 			}
 		}
+	};
+
+	/**
+	 * Provides configuration for the ajax service
+	 * @class ajax.config
+	 * @extends core.config
+	 * @private
+	 * @alias feature.config
+	 */
+
+	return merge.call({}, config, {
+		/**
+		 * Ajax configuration
+		 * @cfg {ajax.config.ajax}
+		 * @protected
+		 */
+		"ajax": AJAX
 	}, module.config());
 });
