@@ -11,7 +11,11 @@ module.exports = function(grunt) {
 
 		"build": {
 			"src": ".",
-			"dist": "dist"
+			"dist": "dist",
+			"footer": "\
+define(['troopjs-ajax/version'], function (version) {\n\
+	return version;\n\
+});"
 		},
 
 		"requirejs": {
@@ -26,6 +30,9 @@ module.exports = function(grunt) {
 				"fileExclusionRegExp": /^(?:\.(?!travis|gitignore)|node_modules|test|guides|(?:version|require|Gruntfile)\.js|package\.json)/,
 				"rawText": {
 					"troopjs-ajax/version": "define([], { 'toString': function () { return <%= JSON.stringify(pkg.version) %>; } });\n"
+				},
+				"wrap": {
+					"end": "<%= build.footer %>"
 				}
 			},
 
@@ -37,7 +44,8 @@ module.exports = function(grunt) {
 							"jquery",
 							"when",
 							"poly",
-							"mu-merge"
+							"mu-merge",
+							"troopjs-core/component/gadget"
 						],
 						"excludeShallow": [
 							"troopjs-ajax/main"
