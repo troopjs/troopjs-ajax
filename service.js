@@ -5,7 +5,7 @@ define([
 	"./config",
 	"troopjs-core/component/gadget",
 	"jquery",
-	"mu-merge"
+	"mu-merge/main"
 ], function (config, Gadget, $, merge) {
 	"use strict";
 
