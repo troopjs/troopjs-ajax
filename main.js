@@ -6,7 +6,7 @@ define('troopjs-ajax/version',[], { 'toString': function () { return ; } });
 define('troopjs-ajax/config',[
 	"module",
 	"troopjs-core/config",
-	"mu-merge"
+	"mu-merge/main"
 ], function (module, config, merge) {
 	
 
@@ -45,6 +45,7 @@ define('troopjs-ajax/config',[
 		"ajax": AJAX
 	}, module.config());
 });
+
 /**
  * @license MIT http://troopjs.mit-license.org/
  */
@@ -52,7 +53,7 @@ define('troopjs-ajax/service',[
 	"./config",
 	"troopjs-core/component/gadget",
 	"jquery",
-	"mu-merge"
+	"mu-merge/main"
 ], function (config, Gadget, $, merge) {
 	
 
