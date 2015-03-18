@@ -45,7 +45,8 @@ define(['troopjs-ajax/version'], function (version) {\n\
 							"when/when",
 							"poly/es5",
 							"mu-merge/main",
-							"troopjs-core/component/gadget"
+							"troopjs-hub/component",
+							"troopjs-core/component/emitter"
 						],
 						"excludeShallow": [
 							"troopjs-ajax/main"
