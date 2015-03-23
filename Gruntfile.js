@@ -43,7 +43,6 @@ define(['troopjs-ajax/version'], function (version) {\n\
 						"exclude": [
 							"jquery",
 							"when/when",
-							"poly/es5",
 							"mu-merge/main",
 							"troopjs-hub/component",
 							"troopjs-core/component/emitter"
