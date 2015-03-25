@@ -49,12 +49,28 @@ define('troopjs-ajax/config',[
 /**
  * @license MIT http://troopjs.mit-license.org/
  */
+define('troopjs-ajax/error',[ "mu-error/factory" ], function (Factory) {
+  
+
+  /**
+   * Ajax error
+   * @class ajax.error
+   * @extend Error
+   * @alias feature.error
+   */
+
+  return Factory("AjaxError");
+});
+/**
+ * @license MIT http://troopjs.mit-license.org/
+ */
 define('troopjs-ajax/service',[
-  "troopjs-hub/component",
+	"troopjs-hub/component",
 	"./config",
+	"./error",
 	"jquery",
 	"mu-merge/main"
-], function (Emitter, config, $, merge) {
+], function (Emitter, config, AjaxError, $, merge) {
 	
 
 	/**
@@ -85,7 +101,11 @@ define('troopjs-ajax/service',[
 		 * @inheritdoc #event-hub/ajax
 		 */
 		"hub/ajax" : function ajax(settings) {
-			return $.ajax(merge.call(SETTINGS.call(this), settings));
+			return $
+				.ajax(merge.call(SETTINGS.call(this), settings))
+				.fail(function (jqXHR, textStatus, errorThrown) {
+					return new AjaxError(errorThrown);
+				});
 		}
 	});
 });

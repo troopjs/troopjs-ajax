@@ -3,4 +3,5 @@ bower_components/../main.js
 ----------------
 bower_components/../version.js
 bower_components/../config.js
+bower_components/../error.js
 bower_components/../service.js
