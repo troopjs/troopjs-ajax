@@ -44,6 +44,7 @@ define(['troopjs-ajax/version'], function (version) {\n\
 							"jquery",
 							"when/when",
 							"mu-merge/main",
+							"mu-error/factory",
 							"troopjs-hub/component",
 							"troopjs-core/component/emitter"
 						],
