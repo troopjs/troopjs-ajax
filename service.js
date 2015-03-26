@@ -18,6 +18,7 @@ define([
    * @alias service.ajax
    */
 
+  var UNDEFINED;
   var SETTINGS = config.ajax.settings;
 
   /**
@@ -40,7 +41,7 @@ define([
     "hub/ajax": function (settings) {
       return $
         .ajax(merge.call(SETTINGS.call(this), settings))
-        .fail(function (jqXHR, textStatus, errorThrown) {
+        .then(UNDEFINED, function (jqXHR, textStatus, errorThrown) {
           return new AjaxError(errorThrown);
         });
     }
