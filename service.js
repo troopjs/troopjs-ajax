@@ -18,20 +18,22 @@ define([
    * @alias service.ajax
    */
 
+  /**
+   * Triggered when an AJAX request is needed
+   * @event hub/ajax
+   * @param {Object} settings Ajax settings
+   * @return {Promise}
+   */
+
   var UNDEFINED;
   var SETTINGS = config.ajax.settings;
 
   /**
    * @method constructor
+   * @inheritdoc
    */
   return Emitter.extend({
     "displayName": "ajax/service",
-
-    /**
-     * The ajax event
-     * @event hub/ajax
-     * @param {Object} settings Ajax settings
-     */
 
     /**
      * Make ajax request
